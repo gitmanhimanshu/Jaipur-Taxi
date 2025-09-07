@@ -1,7 +1,7 @@
 // Client configuration file
 const config = {
   // API Configuration
-  API_BASE_URL: import.meta.env.VITE_API_BASE_URL ,
+  API_BASE_URL: import.meta.env.VITE_API_BASE_URL || 'https://isg-taxi-server.vercel.app',
   
   // App Configuration
   APP_NAME: import.meta.env.VITE_APP_NAME || 'Jaipur Taxi',

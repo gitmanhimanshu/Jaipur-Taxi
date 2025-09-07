@@ -1,93 +1,134 @@
-# Jaipur Taxi - Client
+# ISG Taxi Client
 
-This is the React frontend for the Jaipur Taxi application.
+A modern React application for taxi and tour booking services.
 
-## Environment Setup
+## Features
 
-To configure the backend URL and other settings, create a `.env` file in the client directory:
+- 🚗 Taxi service booking
+- 🏛️ Tour package booking
+- 👤 User authentication and profiles
+- 📱 Responsive design
+- ⚡ Fast loading with Vite
+- 🎨 Modern UI with Tailwind CSS
 
-```bash
-# Copy the example file
-cp .env.example .env
-```
+## Environment Variables
 
-Then edit the `.env` file with your configuration:
+Create a `.env` file in the root directory with the following variables:
 
 ```env
-# Backend API URL
-VITE_API_BASE_URL=http://localhost:5000
+# API Base URL
+VITE_API_BASE_URL=https://isg-taxi-server.vercel.app
 
 # App Configuration
-VITE_APP_NAME=Jaipur Taxi
+VITE_APP_NAME=Eg Run Cab
 VITE_APP_VERSION=1.0.0
 ```
 
-## Available Scripts
+## Installation
 
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run preview` - Preview production build
-
-## Configuration
-
-The app uses a centralized configuration system located in `src/config/config.js`. This file:
-
-- Reads environment variables using Vite's `import.meta.env`
-- Provides fallback values for development
-- Centralizes all API endpoints and configuration
-
-## API Integration
-
-The app includes a comprehensive API service (`src/services/api.js`) that:
-
-- Automatically handles authentication tokens
-- Provides methods for all API endpoints
-- Includes request/response interceptors for error handling
-- Automatically redirects to login on authentication failures
-
-## Available API Methods
-
-### Authentication
-- `authAPI.login(credentials)` - User login
-- `authAPI.register(userData)` - User registration
-- `authAPI.getProfile()` - Get user profile
-- `authAPI.updateProfile(userData)` - Update user profile
-- `authAPI.changePassword(passwordData)` - Change password
-
-### Taxi Services
-- `taxiAPI.getAll()` - Get all taxi options
-- `taxiAPI.getByCategory(category)` - Get taxis by category
-- `taxiAPI.getById(id)` - Get specific taxi
-- `taxiAPI.calculateFare(fareData)` - Calculate fare
-
-### Tour Packages
-- `toursAPI.getAll()` - Get all tour packages
-- `toursAPI.getByCategory(category)` - Get tours by category
-- `toursAPI.getById(id)` - Get specific tour
-- `toursAPI.search(query)` - Search tours
-
-### Bookings
-- `bookingsAPI.create(bookingData)` - Create booking
-- `bookingsAPI.getAll()` - Get all bookings
-- `bookingsAPI.getById(id)` - Get specific booking
-- `bookingsAPI.update(id, bookingData)` - Update booking
-- `bookingsAPI.cancel(id)` - Cancel booking
+```bash
+npm install
+```
 
 ## Development
 
-The app is built with:
-- React 18
-- Vite for build tooling
-- Tailwind CSS for styling
-- Framer Motion for animations
-- React Router for navigation
-- Axios for HTTP requests
+```bash
+npm run dev
+```
 
-## Notes
+## Build
 
-- All environment variables must be prefixed with `VITE_` to be accessible in the client
-- The backend URL defaults to `http://localhost:5000` if not specified
-- API endpoints are automatically prefixed with the configured base URL
+```bash
+npm run build
+```
 
+## Preview Build
 
+```bash
+npm run preview
+```
 
+## Deployment
+
+### Vercel Deployment
+
+1. **Connect to Vercel:**
+   - Go to [Vercel Dashboard](https://vercel.com/dashboard)
+   - Click "New Project"
+   - Connect your GitHub repository
+
+2. **Configure Environment Variables:**
+   - In Vercel dashboard, go to your project settings
+   - Add the following environment variables:
+     ```
+     VITE_API_BASE_URL=https://your-api-url.vercel.app
+     VITE_APP_NAME=Eg Run Cab
+     VITE_APP_VERSION=1.0.0
+     ```
+
+3. **Deploy:**
+   - Vercel will automatically detect the `vercel.json` configuration
+   - Click "Deploy"
+
+### Manual Build
+
+```bash
+# Build the project
+npm run build
+
+# The build artifacts will be stored in the `dist/` directory
+```
+
+## Project Structure
+
+```
+client/
+├── public/
+│   └── favicon.ico
+├── src/
+│   ├── components/
+│   │   ├── Navbar.jsx
+│   │   └── Footer.jsx
+│   ├── pages/
+│   │   ├── Home.jsx
+│   │   ├── Login.jsx
+│   │   ├── Signup.jsx
+│   │   └── ...
+│   ├── services/
+│   │   └── api.js
+│   ├── config/
+│   │   └── config.js
+│   ├── App.jsx
+│   └── main.jsx
+├── vercel.json
+├── vite.config.js
+├── package.json
+└── README.md
+```
+
+## API Integration
+
+The application uses Axios for API calls with the following structure:
+
+- **Base URL:** Configured via `VITE_API_BASE_URL`
+- **Authentication:** JWT token stored in localStorage
+- **Error Handling:** Automatic logout on 401 errors
+
+## Browser Support
+
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License.

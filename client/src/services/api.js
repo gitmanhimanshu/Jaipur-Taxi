@@ -45,7 +45,7 @@ export const authAPI = {
   getProfile: () => api.get(config.ENDPOINTS.AUTH.PROFILE),
   updateProfile: (userData) => api.put(config.ENDPOINTS.AUTH.UPDATE_PROFILE, userData),
   changePassword: (passwordData) => api.put(config.ENDPOINTS.AUTH.CHANGE_PASSWORD, passwordData),
-  uploadProfilePicture: (formData) => api.post('/api/auth/me/avatar', formData, {
+  uploadProfilePicture: (formData) => api.post(config.ENDPOINTS.AUTH.PROFILE + '/avatar', formData, {
     headers: { 'Content-Type': 'multipart/form-data' }
   }),
 };
